@@ -557,7 +557,9 @@
       <path d="M13 1.5L23 7V19L13 24.5L3 19V7L13 1.5Z" stroke="#2F4031" stroke-width="1" fill="none"/>
       <path d="M13 8C13 8 9.5 10 9.5 13.5C9.5 16 11 17.5 13 17.5C15 17.5 16.5 16 16.5 13.5C16.5 10 13 8 13 8Z" fill="#5C7159"/>
     </svg>
-    <span>Imagination Industries</span>
+    <span style="display:inline-flex;align-items:center;white-space:nowrap;">
+  <span style="color:#C9A876;overflow:hidden;width:0;transition:width 0.8s ease;" id="navBOpen">[</span><span style="overflow:hidden;transition:width 0.8s ease;white-space:nowrap;display:inline-block;" id="navClipWrap"><span style="display:inline-block;white-space:nowrap;transform:scaleX(0);transition:transform 0.8s ease;transform-origin:center;" id="navChangingText">ii</span></span><span style="color:#C9A876;overflow:hidden;width:0;transition:width 0.8s ease;" id="navBClose">]</span>&nbsp;Venture Studios
+</span>
   </div>
   <div class="nav-links">
     <a href="#how">How we work</a>
@@ -791,7 +793,39 @@
       btn.innerHTML = 'Something went wrong — try emailing us directly';
       btn.disabled = false;
     });
-  });
+  });// Logo animation
+const navEl = document.getElementById('navChangingText');
+const navBOpen = document.getElementById('navBOpen');
+const navBClose = document.getElementById('navBClose');
+const navClipWrap = document.getElementById('navClipWrap');
+const navTexts = ['ii', 'Imagination Industries'];
+let navCurrent = 0;
+
+navEl.classList && (navEl.style.transform = 'scaleX(1)');
+navClipWrap.style.width = navEl.scrollWidth + 'px';
+
+function animateLogo() {
+  navBOpen.style.width = '0.7ch';
+  navBClose.style.width = '0.7ch';
+  setTimeout(() => {
+    navEl.style.transform = 'scaleX(0)';
+    setTimeout(() => {
+      navCurrent = (navCurrent + 1) % navTexts.length;
+      navEl.textContent = navTexts[navCurrent];
+      navClipWrap.style.width = '0px';
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        navClipWrap.style.width = navEl.scrollWidth + 'px';
+        navEl.style.transform = 'scaleX(1)';
+      }));
+      setTimeout(() => {
+        navBOpen.style.width = '0';
+        navBClose.style.width = '0';
+      }, 1200);
+    }, 800);
+  }, 800);
+}
+
+setInterval(animateLogo, 6000);
 </script>
 
 </body>
