@@ -744,8 +744,12 @@
   <div>Built for the long now.</div>
 </footer>
 
-<button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;clip-path:clip-path:polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);background:#2F4031;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s ease;z-index:200;" id="scrollTop">
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 12V4M8 4L4 8M8 4L12 8" stroke="#F0EDE3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;border:none;background:none;cursor:pointer;opacity:0;transition:opacity 0.3s ease;z-index:200;padding:0;" id="scrollTop">
+  <svg width="44" height="44" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13 1.5L23 7V19L13 24.5L3 19V7L13 1.5Z" fill="#2F4031" stroke="#2F4031" stroke-width="0.5"/>
+    <path d="M13 8C13 8 9.5 10 9.5 13.5C9.5 16 11 17.5 13 17.5C15 17.5 16.5 16 16.5 13.5C16.5 10 13 8 13 8Z" fill="#8FA68E"/>
+    <path d="M13 17V10M13 10L10.5 12.5M13 10L15.5 12.5" stroke="#F0EDE3" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
 </button>
 
 <script>
