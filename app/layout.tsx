@@ -1,32 +1,29 @@
 import type { Metadata } from 'next'
-import { Manrope, Poppins } from 'next/font/google'
+import { Inter, Newsreader } from 'next/font/google'
+import './globals.css'
 
-const manrope = Manrope({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-manrope',
+  variable: '--font-inter',
+  weight: ['300', '400', '500'],
 })
 
-const poppins = Poppins({
+const newsreader = Newsreader({
   subsets: ['latin'],
-  weight: ['300', '400', '500'],
-  variable: '--font-poppins',
+  variable: '--font-newsreader',
+  weight: ['400', '500'],
+  style: ['normal', 'italic'],
 })
 
 export const metadata: Metadata = {
-  title: 'ii Venture Studios',
-  description: 'A venture studio for founders and ideas that refuse to accept the world as it is.',
+  title: 'Imagination Industries Venture Studios',
+  description: 'A studio for ideas worth building.',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${manrope.variable} ${poppins.variable}`}>
-      <body style={{ margin: 0 }}>
-        {children}
-      </body>
+    <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
+      <body>{children}</body>
     </html>
   )
 }
